@@ -18,6 +18,7 @@
 		      version    : 'v2.5'
 
 		    });
+		    /** Get login status **/
 		    FB.getLoginStatus(function(response) {
 		    	if (response.status === 'connected') {
 		    		document.getElementById('status').innerHTML = 'We are connected.';
@@ -69,22 +70,22 @@
 			});
 		}
 		
+		/* upload feed to facebook */ 		
 		function uploadFeed(imgUrl, des) {
-            console.log("img Url-------- " + imgUrl);
-            $scope.loaderOverlay = false;
-            var linkPage = 'http://playshowdown.com/feed?categoryName='+vm.stateType.categoryName+'&id='+ vm.stateType._id +
-                '&type='+vm.stateType.type + '&feedType='+vm.stateType.feedType;
-            FB.ui({
-                    method: 'share_open_graph',
-                    action_type: 'og.shares',
-                    action_properties: JSON.stringify({
-                        object: {
-                            'og:url': linkPage,
-                            'og:title': "Play Showdown",
-                            'og:description': des,
-                            'og:image': imgUrl
-                        }
-                    })
+		    $scope.loaderOverlay = false;
+		    var linkPage = 'http://playshowdown.com/feed?categoryName='+vm.stateType.categoryName+'&id='+ vm.stateType._id +
+			'&type='+vm.stateType.type + '&feedType='+vm.stateType.feedType;
+		    FB.ui({
+			    method: 'share_open_graph',
+			    action_type: 'og.shares',
+			    action_properties: JSON.stringify({
+				object: {
+				    'og:url': linkPage,
+				    'og:title': "Play Showdown",
+				    'og:description': des,
+				    'og:image': imgUrl
+				}
+			    })
                 },
                 function (response) {
                 console.log(response);
