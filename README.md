@@ -1,5 +1,13 @@
-# Facebook Login
-+ Use facebook sdk url
-+ Drag index.html file to browser
+#Facebook Login
 
-Thank you.
++ Facebook SDK
+
+```
+https://connect.facebook.net/en_US/sdk.js
+```
++ Serve HTML
+
+```
+Drag index.html to browser.
+```
+##### Thank you.
